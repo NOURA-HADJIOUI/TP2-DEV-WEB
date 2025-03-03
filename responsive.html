@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation Responsive</title>
+  <style>
+    /* Styles par défaut pour les écrans larges (ordinateurs) */
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      transition: background-color 0.5s ease;
+      animation: moveHorizontal 2s infinite alternate;
+    }
+
+    .box:hover {
+      background-color: blue;
+    }
+
+    @keyframes moveHorizontal {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(400px);
+      }
+    }
+
+    /* Styles pour les appareils mobiles */
+    @media screen and (max-width: 479px) {
+      .box {
+        background-color: yellow;
+        animation: moveVertical 2s infinite alternate;
+      }
+
+      .box:hover {
+        background-color: green;
+      }
+
+      @keyframes moveVertical {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(400px);
+        }
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>
+<!-- 
+1.<meta name="viewport" content="width=device-width, initial-scale=1.0"> dans <head>.
+Cette balise permet de contrôler la mise en page sur les appareils mobiles en définissant la largeur de la zone d'affichage et le niveau de zoom initial.
+2.transition: background-color 0.5s ease; dans .box.
+Cela indique que le changement de la couleur de fond de l'élément .box se fera sur une durée de 0.5 secondes avec une courbe de transition 'ease'.
+3.animation: moveHorizontal 2s infinite alternate; dans .box.
+Cela définit une animation appelée moveHorizontal qui dure 2 secondes, se répète indéfiniment, et alterne entre l'état initial et final.
+4.Le code à l’intérieur de : @keyframes moveHorizontal.
+@keyframes moveHorizontal définit les étapes de l'animation, spécifiant les positions de départ et d'arrivée, ainsi que les transformations éventuelles.
+5.Le code à l’intérieur de : @media screen and (max-width: 479px).
+Ce code applique des styles spécifiques lorsque la largeur de l'écran est inférieure ou égale à 479px, permettant d'adapter le design aux écrans plus petits. -->
