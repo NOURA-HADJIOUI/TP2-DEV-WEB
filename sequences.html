@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Génération de Séquence</title>
+</head>
+<body>
+    <h1>Affichage des entiers etre deux nombres</h1> 
+    <p>Entrez deux nombres pour afficher tous les entiers</p>
+    <label> Nombre A :<input  type="number" id="numberA" placeholder="Entrez le premier nombre" ></label>
+    <br>
+    <label>Nombre B : <input type="number" id="numberB" placeholder="Entrez le deuxième nombre"></label>
+    <br>
+    <button onclick="generateSequence()">Afficher les nombres </button>
+    <p id="result"></p>
+
+    <script>
+        function generateSequence() {
+            const A = parseInt(document.getElementById('numberA').value);
+            const B = parseInt(document.getElementById('numberB').value);
+            let sequence = [];
+
+            if (A <= B) {
+                for (let i = A; i <= B; i++) {
+                    sequence.push(i);
+                }
+            } else {
+                for (let i = A; i >= B; i--) {
+                    sequence.push(i);
+                }
+            }
+
+            document.getElementById('result').innerText = sequence.join(', ');
+        }
+    </script>
+</body>
+</html>

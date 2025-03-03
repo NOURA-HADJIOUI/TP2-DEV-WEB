@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suppression de Ligne</title>
+</head>
+<body>
+    
+    <table border="1" id="dataTable">
+        <tr><th>Valeurs</th></tr>
+        <tr><td>1</td></tr>
+        <tr><td>2</td></tr>
+        <tr><td>3</td></tr>
+    </table>
+    <input type="text" id="valueToDelete" placeholder="Donner la Valeur à supprimer">
+    <button onclick="deleteRow()">Supprimer</button>
+
+    <script>
+        function deleteRow() {
+            const value = document.getElementById('valueToDelete').value;
+            const table = document.getElementById('dataTable');
+            let found = false;
+
+            for (let i = 1; i < table.rows.length; i++) {
+                if (table.rows[i].cells[0].innerText === value) {
+                    table.deleteRow(i);
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                alert("Valeur non trouvée !");
+            }
+        }
+    </script>
+</body>
+</html>
